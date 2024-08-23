@@ -1,0 +1,17 @@
+@import url('../css/navigation.css');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    background-color: black;
+    color: white;
+}
+
+html {
+    scroll-behavior: smooth;
+}

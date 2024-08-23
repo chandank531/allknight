@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/product-details.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <div id="header-container"></div> 
+    <!-- Main Content -->
+    <main class="product-details">
+        <div class="container">
+            <div class="product-media">
+                <!-- Main Product Image/Video -->
+                <div class="product-image">
+                    <img id="main-media" src="./assets/images/4dddc8c5d8ec4bcd80ca201b4d53ee43.thumbnail.0000000000.jpg" alt="Product Image" class="media-active">
+                    <video id="main-video" class="media-inactive" controls>
+                        <source src="" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <!-- Thumbnail Slider -->
+                <div class="slider">
+                    <div class="thumbnail" onclick="changeMedia('./assets/images/COBRA-LIBRE-II-Penis-Head-Vibrator-Red-Product-1.jpg', 'image')">
+                        <img src="./assets/images/COBRA-LIBRE-II-Penis-Head-Vibrator-Red-Product-1.jpg" alt="Thumbnail 1">
+                    </div>
+                    <div class="thumbnail" onclick="changeMedia('./assets/images/COBRA-LIBRE-II-Penis-Head-Vibrator-Red-Product-1.png', 'image')">
+                        <img src="./assets/images/COBRA-LIBRE-II-Penis-Head-Vibrator-Red-Product-1.png" alt="Thumbnail 2">
+                    </div>
+                    <div class="thumbnail" onclick="changeMedia('./assets/images/MANTA-Vibrating-Stroker-Black-Product-2_b1f35a27-8983-410a-a3cf-1c69c092812b.png', 'image')">
+                        <img src="./assets/images/MANTA-Vibrating-Stroker-Black-Product-2_b1f35a27-8983-410a-a3cf-1c69c092812b.png" alt="Thumbnail 2">
+                    </div>
+                    
+                </div>
+            </div>            
+            <div class="product-info">
+                <!-- Review Section -->
+                <div class="product-review">
+                    <span class="stars">★★★★★</span>
+                    <a href="#customer-reviews" class="review-link">(18 reviews)</a>
+                </div>
+                <h1>Product Name</h1>
+                <p class="price">$99.99</p>
+                <p class="description">
+                    This is a brief description of the product. It highlights the key features, materials, and other relevant details to give customers an idea of what the product is all about.
+                </p>
+                <div class="product-options">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" value="1" min="1">
+                </div>
+                <button class="add-to-cart" data-name="Product1" data-price="99.99" data-image="path/to/image.jpg">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+    
+                <!-- Product Specs Section -->
+                <div class="product-specs">
+                    <div class="spec-panel">
+                        <input type="checkbox" id="spec1">
+                        <label for="spec1">Specifications</label>
+                        <div class="spec-content">
+                            <p>Spec detail 1...</p>
+                            <p>Spec detail 2...</p>
+                        </div>
+                    </div>
+                    <div class="spec-panel">
+                        <input type="checkbox" id="spec2">
+                        <label for="spec2">Materials</label>
+                        <div class="spec-content">
+                            <p>Material detail 1...</p>
+                            <p>Material detail 2...</p>
+                        </div>
+                    </div>
+                    <!-- Add more panels as needed -->
+                </div>
+            </div>
+        </div>
+    </main>
+    
+
+    <section class="customer-reviews" id="customer-reviews">
+        <h2>What Are Customers Saying?</h2>
+        <div class="review-summary">
+            <div class="rating">
+                <span class="stars">★★★★☆</span>
+                <a href="#">4.22 out of 5</a>
+                <p>Based on 18 reviews</p>
+                <p href="#">collected by Judge.me</p>
+            </div>
+            <div class="rating-distribution">
+                <div>
+                    <span class="stars">★★★★★</span>
+                    <div class="bar"><div class="filled-bar" style="width: 70%;"></div></div>
+                    <span>11</span>
+                </div>
+                <div>
+                    <span class="stars">★★★★☆</span>
+                    <div class="bar"><div class="filled-bar" style="width: 20%;"></div></div>
+                    <span>4</span>
+                </div>
+                <div>
+                    <span class="stars">★★★☆☆</span>
+                    <div class="bar"><div class="filled-bar" style="width: 5%;"></div></div>
+                    <span>1</span>
+                </div>
+                <div>
+                    <span class="stars">★★☆☆☆</span>
+                    <div class="bar"><div class="filled-bar" style="width: 0%;"></div></div>
+                    <span>0</span>
+                </div>
+                <div>
+                    <span class="stars">★☆☆☆☆</span>
+                    <div class="bar"><div class="filled-bar" style="width: 5%;"></div></div>
+                    <span>2</span>
+                </div>
+            </div>
+            <button class="write-review-btn">Write a review</button>
+        </div>
+        <div class="authenticity-badge">
+            <img src="./assets/images/bronze.svg" alt="Bronze Authenticity">
+            <p>Verified by Judge.me</p>
+        </div>
+        <div class="review-list">
+            <div class="review-item">
+                <div class="review-header">
+                    <span class="stars">★★★★☆</span>
+                    <!-- <span class="reviewer">E.</span>
+                    <span class="verified">Verified</span> -->
+                    <span class="review-date">1 month ago</span>
+                </div>
+                <h3>Laya III is not an upgrade from II</h3>
+                <p>The pink Laya II is more powerful and was less expensive than Laya III...</p>
+            </div>
+        </div>
+    </section>
+    
+    
+   
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <script src="./assets/js/navigation.js"></script>
+    <script src="./assets/js/product-details.js"></script>
+</body>
+</html>

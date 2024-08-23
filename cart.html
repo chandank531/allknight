@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Page</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/cart.css">
+</head>
+<body>
+    <!-- Header -->
+    <div id="header-container"></div> 
+
+
+    <!-- Main Content -->
+    <main class="cart-page">
+        <div class="container">
+            <!-- Cart Section -->
+            <div class="cart-section">
+                <h2 class="title">Your Cart</h2>
+                <!-- <div class="cart-item">
+                    <div class="cart-item-image">
+                        <img src="./assets/images/4dddc8c5d8ec4bcd80ca201b4d53ee43.thumbnail.0000000000.jpg" alt="Product Image">
+                    </div>
+                    <div class="cart-item-info">
+                        <h2>Product Name</h2>
+                        <p class="price">$99.99</p>
+                        <p class="description">
+                            Brief description of the product goes here.
+                        </p>
+                        <div class="cart-item-quantity">
+                            <label for="quantity">Quantity:</label>
+                            <input type="number" id="quantity" name="quantity" value="1" min="1">
+                        </div>
+                        <button class="remove-item">Remove Item</button>
+                    </div>
+                </div> -->
+            </div>
+
+            <!-- Account Creation Form -->
+            <div class="account-form">
+                <h2>Create Your Account</h2>
+                <form action="submit-form.php" method="post">
+                    <div class="form-group">
+                        <label for="dob">Date of Birth:</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender:</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sexual-preference">Sexual Preference:</label>
+                        <select id="sexual-preference" name="sexual-preference" required>
+                            <option value="">Select Preference</option>
+                            <option value="heterosexual">Heterosexual</option>
+                            <option value="homosexual">Homosexual</option>
+                            <option value="bisexual">Bisexual</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="first-name">First Name:</label>
+                        <input type="text" id="first-name" name="first-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name:</label>
+                        <input type="text" id="last-name" name="last-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="terms">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            I agree to the <a href="#">Terms and Conditions</a>
+                        </label>
+                    </div>
+                    <button type="submit" class="create-account">Create My Account</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container"></div> 
+
+    <script src="./assets/js/navigation.js"></script>
+    <script src="./assets/js/cart.js"></script>
+</body>
+</html>
