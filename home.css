@@ -3,7 +3,7 @@
 /* VIM-video-cover.jpg */
 /* TIGER-Vibrator-Black-video-preview.jpg */
 .hero {
-    background-image: url('../images/VIM-video-cover.jpg');
+    background-image: url('./assets/VIM-video-cover.jpg');
     background-size: cover;
     background-position: center;
     height: 80vh;
@@ -366,7 +366,7 @@
 
 /*========= mini banner section ============= */
 .mini-banner {
-    background-image: url('../images/TIGER-Vibrator-Black-video-preview.jpg');
+    background-image: url('./assets/TIGER-Vibrator-Black-video-preview.jpg');
     background-size: cover;
     background-position: center;
     height: 70vh;
