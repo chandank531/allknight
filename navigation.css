@@ -90,15 +90,24 @@ nav ul li a:hover {
     /* transition: color 0.3s ease, transform 0.3s ease; Smooth transition for color and transform */
 }
 
-.nav-icons a:hover {
-    color: #fd2f00; /* Change color on hover */
-    /* transform: scale(1.1); Scale the icon on hover */
-}
-
-.cart-image {
+.icon-cart img,
+.icon-user img {
     width: 24px; /* Adjust width as needed */
     height: auto; /* Maintain aspect ratio */
     margin-right: 8px; /* Space between icon and text */
+}
+
+.icon-cart {
+    color: #00f; /* Blue color for the cart icon */
+}
+
+.icon-user {
+    color: white; /* Ensure text color matches the user icon */
+}
+
+.nav-icons a:hover {
+    color: #fd2f00; /* Change color on hover */
+    /* transform: scale(1.1); Scale the icon on hover */
 }
 
 .search-box {
