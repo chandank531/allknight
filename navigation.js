@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Load header and footer partials
-    loadPartial('header.html', 'header-container', () => {
+    loadComponent('header-container', 'header.html', () => {
         const cartIcon = document.querySelector('.icon-cart');
         if (cartIcon) {
             updateCartCount();
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    loadPartial('footer.html', 'footer-container');
+    loadComponent('footer-container', 'footer.html');
 
     // Handle scroll behavior
     window.addEventListener('scroll', function() {
