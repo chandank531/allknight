@@ -1,21 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Load header and footer partials
     loadPartial('header.html', 'header-container', () => {
-        // Existing header functionality here
-        const cartIcon = document.querySelector('.icon-cart');
-        if (cartIcon) {
-            updateCartCount();
-        } else {
-            console.error('Cart icon element not found in header.');
-        }
-
-        // Any other header-specific initialization
+        // Initialize header functionalities
+        updateCartCount();
         initDropdownMenu();
         setupSearchBar();
+        initHamburgerMenu();
     });
 
     loadPartial('footer.html', 'footer-container', () => {
-        // Existing footer functionality here
+        // Initialize footer functionalities
         initFooterLinks();
     });
 
@@ -57,23 +51,41 @@ function updateCartCount() {
 }
 
 function initDropdownMenu() {
-    const dropdowns = document.querySelectorAll('.dropdown');
-    dropdowns.forEach(dropdown => {
-        dropdown.addEventListener('click', () => {
-            dropdown.classList.toggle('open');
+    const dropdown = document.querySelector('.dropdown');
+    if (dropdown) {
+        dropdown.addEventListener('mouseenter', () => {
+            dropdown.classList.add('open');
         });
-    });
+        dropdown.addEventListener('mouseleave', () => {
+            dropdown.classList.remove('open');
+        });
+    } else {
+        console.error('Dropdown menu not found.');
+    }
 }
 
 function setupSearchBar() {
-    const searchBar = document.querySelector('.search-bar');
+    const searchBox = document.querySelector('.search-box');
     const searchIcon = document.querySelector('.icon-search');
-    if (searchIcon) {
+    if (searchBox && searchIcon) {
         searchIcon.addEventListener('click', () => {
-            searchBar.classList.toggle('active');
+            searchBox.classList.toggle('active');
         });
     } else {
-        console.error('Search icon element not found.');
+        console.error('Search box or icon element not found.');
+    }
+}
+
+function initHamburgerMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('nav');
+    if (hamburger && nav) {
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('open');
+            hamburger.classList.toggle('active');
+        });
+    } else {
+        console.error('Hamburger menu or nav element not found.');
     }
 }
 
