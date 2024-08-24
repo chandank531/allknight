@@ -90,12 +90,6 @@ nav ul li a:hover {
     /* transition: color 0.3s ease, transform 0.3s ease; Smooth transition for color and transform */
 }
 
-.icon-cart img,
-.icon-user img {
-    width: 24px; /* Adjust width as needed */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 8px; /* Space between icon and text */
-}
 
 .icon-cart {
     color: #00f; /* Blue color for the cart icon */
