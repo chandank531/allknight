@@ -95,6 +95,12 @@ nav ul li a:hover {
     /* transform: scale(1.1); Scale the icon on hover */
 }
 
+.cart-image {
+    width: 24px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 8px; /* Space between icon and text */
+}
+
 .search-box {
     margin-left: 20px;
     padding: 5px 10px;
