@@ -104,6 +104,7 @@ nav ul li a:hover {
     outline: none;
     color: black;
     transition: transform 0.3s ease; /* Animation for search box on focus */
+    width: 300px;
 }
 
 .search-box:focus {
