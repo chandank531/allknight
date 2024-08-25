@@ -68,20 +68,32 @@ function changeMedia(src, type) {
     const mediaVideo = document.getElementById('main-video');
     
     if (type === 'image') {
-        mediaImg.src = src;
-        mediaImg.classList.add('media-active');
-        mediaVideo.classList.remove('media-active');
-        mediaVideo.classList.add('media-inactive');
-        mediaVideo.pause(); // Stop video if it's playing
+        if (mediaImg) {
+            mediaImg.src = src;
+            mediaImg.classList.add('media-active');
+            mediaImg.classList.remove('media-inactive');
+        }
+        if (mediaVideo) {
+            mediaVideo.classList.remove('media-active');
+            mediaVideo.classList.add('media-inactive');
+            mediaVideo.pause(); // Stop video if it's playing
+        }
     } else if (type === 'video') {
         console.log('Video source:', src); // Debugging line
-        const videoSource = mediaVideo.querySelector('source');
-        videoSource.src = src;
-        mediaVideo.load(); // Load the new video source
-        mediaVideo.classList.add('media-active');
-        mediaImg.classList.remove('media-active');
-        mediaImg.classList.add('media-inactive');
-        mediaVideo.play(); // Automatically play video if desired
+        if (mediaVideo) {
+            const videoSource = mediaVideo.querySelector('source');
+            if (videoSource) {
+                videoSource.src = src;
+                mediaVideo.load(); // Load the new video source
+                mediaVideo.classList.add('media-active');
+                mediaVideo.classList.remove('media-inactive');
+                mediaVideo.play(); // Automatically play video if desired
+            }
+        }
+        if (mediaImg) {
+            mediaImg.classList.remove('media-active');
+            mediaImg.classList.add('media-inactive');
+        }
     }
     
     // Scroll to the top of the page
