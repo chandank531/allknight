@@ -147,9 +147,9 @@ nav ul li a:hover {
         transition: all 0.3s ease;
     }
 
-    .hamburger:hover div {
+    /* .hamburger:hover div {
         transform: rotate(5deg);
-    }
+    } */
 
     .show {
         display: flex !important;
