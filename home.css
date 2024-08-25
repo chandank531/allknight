@@ -1,4 +1,3 @@
-
 /*==================== Hero section css =========================*/
 /* VIM-video-cover.jpg */
 /* TIGER-Vibrator-Black-video-preview.jpg */
@@ -216,11 +215,44 @@
     }
 }
 
-/*========== bestselling section css ===========*/
+/* Responsive styles for small devices */
+@media (max-width: 768px) {
+    .hero-menu {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items */
+        padding: 10px 0; /* Adjust padding */
+        margin-top: 10px; /* Adjust margin */
+    }
 
+    .hero-menu a {
+        margin: 10px 0; /* Add margin between links */
+    }
+
+    .hero-banner {
+        height: auto; /* Allow banner to adjust height */
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+
+    .hero-banner h2 {
+        font-size: 28px; /* Adjust font size for smaller screens */
+    }
+
+    .cta-button {
+        font-size: 16px; /* Adjust button font size for smaller screens */
+        padding: 12px 24px; /* Adjust button padding for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-banner h2 {
+        font-size: 24px; /* Further reduce font size for very small screens */
+    }
+}
+
+/*========== bestselling section css ===========*/
 .bestselling {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Default to column for small screens */
     align-items: center;
     padding: 40px;
     color: white;
@@ -241,30 +273,33 @@
     padding: 5px 10px;
     border-radius: 15px; /* Rounded corners for the tag */
     font-size: 1.25rem; /* Slightly larger font size for visibility */
+    margin-bottom: 20px; /* Margin for spacing between tag and slider */
 }
 
 .slider {
     width: 100%;
-    overflow-x: auto;
-    white-space: nowrap; /* Ensures cards don't wrap */
+    overflow: hidden; /* Hide horizontal scroll */
     padding: 10px 0; /* Adjusted padding for better alignment */
     box-sizing: border-box;
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Default to column for small screens */
+    align-items: center; /* Center items horizontally */
 }
 
 .slides {
-    display: flex; /* Align slides horizontally */
-    align-items: center; /* Center slides vertically */
+    display: flex;
+    flex-direction: column; /* Default to column for small screens */
+    align-items: center; /* Center slides horizontally */
     gap: 20px; /* Adjusted space between slides */
 }
 
 .slide {
-    display: flex; /* Align content inside each slide */
-    align-items: center; /* Center content vertically */
-    justify-content: center; /* Center content horizontally */
-    flex-shrink: 0; /* Prevent slides from shrinking */
-    width: 250px; /* Consistent slide width */
+    display: flex;
+    flex-direction: column; /* Default to column for small screens */
+    align-items: center; /* Center content horizontally */
+    width: 100%;
+    max-width: 300px; /* Adjusted width for better fit */
+    margin-bottom: 20px; /* Space between slides */
 }
 
 .card {
@@ -274,9 +309,8 @@
     overflow: hidden;
     text-align: center;
     padding: 15px;
-    position: relative;
-    width: 220px;
-    height: 320px;
+    width: 100%;
+    max-width: 280px; /* Consistent card width */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -302,7 +336,6 @@
     display: flex;
     flex-direction: column;
     align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
     height: 150px; /* Ensuring consistent card height */
     color: black;
     text-align: center; /* Center text alignment */
@@ -341,26 +374,50 @@
     background-color: #e64a4a; /* Darker shade on hover */
 }
 
+/* Media Queries for small devices */
 @media (max-width: 768px) {
+    .bestselling {
+        flex-direction: column; /* Stack vertically on small screens */
+        padding: 20px; /* Reduced padding for smaller screens */
+    }
+
     .slider {
-        padding: 10px 0; /* Adjust padding for smaller screens */
+        flex-direction: column; /* Stack vertically on small screens */
+    }
+
+    .slides {
+        flex-direction: column; /* Stack slides vertically */
+    }
+
+    .slide {
+        max-width: 100%; /* Ensure slides fit within container */
+        width: auto; /* Remove fixed width for small screens */
     }
 
     .card {
-        width: 150px; /* Adjust card width for smaller screens */
-        height: 250px; /* Adjust card height for smaller screens */
+        width: 100%; /* Full width for smaller screens */
+        max-width: none; /* Remove max-width restriction */
     }
 
     .card img {
-        height: 120px; /* Adjust image height for smaller screens */
+        height: auto; /* Adjust image height for better fit */
+    }
+}
+
+/* Ensure large screens maintain horizontal alignment */
+@media (min-width: 769px) {
+    .slider {
+        flex-direction: row; /* Align horizontally on large screens */
     }
 
-    .bestselling h2 {
-        font-size: 2rem; /* Adjust font size for smaller screens */
+    .slides {
+        flex-direction: row; /* Align slides horizontally */
+        flex-wrap: wrap; /* Allow wrapping if necessary */
     }
 
-    .new-tag {
-        font-size: 1rem; /* Adjust tag font size for smaller screens */
+    .slide {
+        flex-direction: column; /* Stack content vertically inside slide */
+        max-width: 300px; /* Set max-width for slides */
     }
 }
 
@@ -369,7 +426,7 @@
     background-image: url('./assets/TIGER-Vibrator-Black-video-preview.jpg');
     background-size: cover;
     background-position: center;
-    height: 70vh;
+    height: 70vh; /* Adjusted height for better view */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -382,6 +439,24 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
 }
 
+@media (max-width: 768px) {
+    .mini-banner {
+        height: 50vh; /* Reduce height for smaller screens */
+        padding: 0 15px; /* Adjust padding for smaller screens */
+        background-position: top center; /* Adjust background position for better view */
+    }
+}
+
+@media (max-width: 480px) {
+    .mini-banner {
+        height: 40vh; /* Further reduce height for very small screens */
+        padding: 0 10px; /* Further adjust padding for very small screens */
+        background-position: top center; /* Ensure background position remains optimal */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow for a lighter look */
+    }
+}
+
+
 /*============ feature product section css ==============*/
 
 .featured-product {
@@ -391,6 +466,7 @@
 
 .product-card {
     display: flex;
+    flex-direction: row; /* Default layout */
     align-items: center;
     justify-content: space-between;
     max-width: 1200px;
@@ -406,7 +482,6 @@
     flex: 1;
     position: relative;
     overflow: hidden;
-   
 }
 
 .product-image img {
@@ -540,6 +615,54 @@
     opacity: 0.8;
 }
 
+/* Responsive styles for small devices */
+@media (max-width: 768px) {
+    .product-card {
+        flex-direction: column; /* Stack image on top and content below */
+        align-items: stretch; /* Stretch items to full width */
+    }
+
+    .product-image {
+        width: 100%; /* Ensure image takes full width */
+        height: auto; /* Adjust height automatically */
+    }
+
+    .product-content {
+        padding: 15px; /* Adjust padding */
+    }
+
+    .product-content h2 {
+        font-size: 20px; /* Adjust font size for smaller screens */
+    }
+
+    .product-content h3 {
+        font-size: 18px; /* Adjust font size for smaller screens */
+    }
+
+    .product-content .price {
+        font-size: 1.2em; /* Adjust font size for smaller screens */
+    }
+
+    .product-actions button, .product-actions a {
+        font-size: 0.9em; /* Adjust font size for buttons */
+        padding: 8px; /* Adjust padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-content h2 {
+        font-size: 18px; /* Further reduce font size for very small screens */
+    }
+
+    .product-content h3 {
+        font-size: 16px; /* Further reduce font size for very small screens */
+    }
+
+    .product-content .price {
+        font-size: 1em; /* Further reduce font size for very small screens */
+    }
+}
+
 /*============== exclusive-tips section css ===============*/
 .exclusive-tips {
     text-align: center;
@@ -619,6 +742,46 @@
 
 .view-all-button:hover {
     background-color: #e02d00; /* Darker shade on hover */
+}
+
+/* Responsive styles for small devices */
+@media (max-width: 768px) {
+    .tips-container {
+        flex-direction: column; /* Stack cards vertically */
+        align-items: center; /* Center cards */
+        gap: 20px; /* Reduced gap between cards */
+    }
+
+    .tip-card {
+        max-width: 90%; /* Adjust width to fit small screens */
+    }
+
+    .tip-card img {
+        height: auto; /* Adjust image height automatically */
+    }
+
+    .exclusive-tips h2 {
+        font-size: 24px; /* Adjust font size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .exclusive-tips h2 {
+        font-size: 20px; /* Further reduce font size for very small screens */
+    }
+
+    .tip-card h3 {
+        font-size: 18px; /* Further reduce font size for the card title */
+    }
+
+    .tip-card p {
+        font-size: 14px; /* Further reduce font size for description */
+    }
+
+    .view-all-button {
+        font-size: 14px; /* Reduce font size for the button */
+        padding: 8px 16px; /* Adjust padding */
+    }
 }
 
 /*========== newest-toys section css ============*/

@@ -1,31 +1,32 @@
-/* Existing header styles remain unchanged */
+/* Existing header styles remain unchanged for large screens */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
-    background-color: transparent; /* Start with transparent background */
+    background-color: transparent;
     color: white;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    transition: background-color 0.5s ease-in-out, padding 0.3s ease-in-out; /* Smooth transition */
+    transition: background-color 0.5s ease-in-out, padding 0.3s ease-in-out;
 }
 
 header.scrolled {
-    background-color: rgba(0, 0, 0, 0.8); /* Change to a solid color when scrolled */
-    padding: 10px 40px; /* Adjust padding */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Logo Styles */
 .logo {
     font-size: 28px;
     font-weight: bold;
-    color: #fd2f00; /* Secondary color */
+    color: #fd2f00;
     line-height: 1;
-    transition: transform 0.3s ease-in-out; /* Animation for logo on scroll */
-    align-self: center; /* Align logo vertically */
+    transition: transform 0.3s ease-in-out;
+    align-self: center;
 }
 
 .logo::before {
@@ -39,43 +40,40 @@ header.scrolled {
 }
 
 .logo span {
-    font-size: 34px; /* Increase size of 'K' */
+    font-size: 34px;
     font-weight: bold;
     color: #fd2f00;
 }
 
+/* Navigation Styles */
 nav ul {
     display: flex;
     list-style: none;
     opacity: 1;
-    transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity */
+    transition: opacity 0.5s ease-in-out;
 }
 
 header.scrolled nav ul {
-    opacity: 0.8; /* Slightly reduce opacity when scrolled */
+    opacity: 0.8;
 }
 
 nav ul li {
     margin-right: 30px;
-    /*transition: transform 0.3s ease-in-out;*/ /* Commented out animation for menu items on hover */
 }
-
-/* nav ul li:hover {
-    transform: translateY(-5px);*/ /* Commented out upward movement on hover
-} */
 
 nav ul li a {
     text-decoration: none;
     color: white;
     font-weight: bold;
     font-size: 14px;
-    transition: color 0.3s ease; /* Smooth transition for color */
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #fd2f00; /* Change color on hover */
+    color: #fd2f00;
 }
 
+/* Icon Styles */
 .nav-icons {
     display: flex;
     align-items: center;
@@ -87,12 +85,10 @@ nav ul li a:hover {
     color: white;
     font-weight: bold;
     font-size: 14px;
-    /* transition: color 0.3s ease, transform 0.3s ease; Smooth transition for color and transform */
 }
 
 .nav-icons a:hover {
-    color: #fd2f00; /* Change color on hover */
-    /* transform: scale(1.1); Scale the icon on hover */
+    color: #fd2f00;
 }
 
 .search-box {
@@ -103,33 +99,44 @@ nav ul li a:hover {
     border-radius: 4px;
     outline: none;
     color: black;
-    transition: transform 0.3s ease; /* Animation for search box on focus */
+    transition: transform 0.3s ease;
 }
 
 .search-box:focus {
-    transform: scale(1.05); /* Scale the search box on focus */
+    transform: scale(1.05);
 }
 
 .search-box::placeholder {
     color: #666;
 }
 
+/* Hamburger Menu Styles */
 .hamburger {
     display: none;
 }
 
+/* Responsive Styles for Small Screens */
 @media (max-width: 768px) {
     header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         padding: 15px 20px;
     }
 
-    nav ul, .nav-icons {
+    .logo {
+        margin-bottom: 15px;
+    }
+
+    nav ul,
+    .nav-icons {
         display: none;
     }
 
     .hamburger {
         display: block;
         cursor: pointer;
+        margin-top: 10px;
     }
 
     .hamburger div {
@@ -137,31 +144,45 @@ nav ul li a:hover {
         height: 3px;
         background-color: white;
         margin: 5px 0;
-        transition: all 0.3s ease; /* Animation for hamburger lines */
+        transition: all 0.3s ease;
     }
 
     .hamburger:hover div {
-        transform: rotate(5deg); /* Rotate lines on hover */
+        transform: rotate(5deg);
+    }
+
+    .show {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        animation: slideDown 0.5s ease-in-out;
+        /* Center items vertically and ensure proper spacing */
+        justify-content: center;
+    }
+
+    .show nav ul li,
+    .show .nav-icons a,
+    .show .search-box {
+        margin-bottom: 20px; /* Adjust spacing between nav items, icons, and search box */
+    }
+
+    .show .nav-icons {
+        margin-top: 15px; /* Add spacing before icons */
+        margin-bottom: 15px; /* Add spacing after icons */
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 }
 
-.show {
-    display: flex !important;
-    flex-direction: column;
-    align-items: center;
-    animation: slideDown 0.5s ease-in-out; /* Slide down animation for mobile menu */
-}
-
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 /* Base dropdown menu styles */
 .dropdown {

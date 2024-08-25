@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
         updateCartCount();
         initDropdownMenu();
         setupSearchBar();
-        initHamburgerMenu();
+        initHamburgerMenu(); // Make sure this is called after the DOM is ready
     });
 
     loadPartial('footer.html', 'footer-container', () => {
@@ -26,6 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error('Header element not found.');
         }
     });
+
+    // Initialize sidebar functionality
+    initSidebar();
 });
 
 function loadPartial(partialPath, elementId, callback) {
@@ -78,15 +81,44 @@ function setupSearchBar() {
 
 function initHamburgerMenu() {
     const hamburger = document.querySelector('.hamburger');
-    const nav = document.querySelector('nav');
+    const nav = document.querySelector('nav ul');
+    const navIcons = document.querySelector('.nav-icons');
     
-    if (hamburger && nav) {
+    if (hamburger && nav && navIcons) {
         hamburger.addEventListener('click', () => {
-            nav.classList.toggle('open');
+            nav.classList.toggle('show');
+            navIcons.classList.toggle('show');
             hamburger.classList.toggle('active');
         });
     } else {
-        console.error('Hamburger menu or nav element not found.');
+        console.error('Hamburger menu, nav, or nav-icons element not found.');
+    }
+}
+
+function initSidebar() {
+    const hamburger = document.querySelector('.hamburger');
+    const sidebar = document.querySelector('.sidebar');
+    const closeSidebar = document.querySelector('.close-sidebar'); // Add a close button if necessary
+
+    if (hamburger && sidebar) {
+        hamburger.addEventListener('click', () => {
+            sidebar.classList.toggle('show');
+        });
+
+        if (closeSidebar) {
+            closeSidebar.addEventListener('click', () => {
+                sidebar.classList.remove('show');
+            });
+        }
+
+        // Close sidebar when clicking outside of it
+        document.addEventListener('click', (event) => {
+            if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
+                sidebar.classList.remove('show');
+            }
+        });
+    } else {
+        console.error('Sidebar or hamburger menu element not found.');
     }
 }
 
@@ -107,8 +139,3 @@ function initFooterLinks() {
         });
     });
 }
-
-document.querySelector('.hamburger').addEventListener('click', function() {
-    this.classList.toggle('open');
-    document.querySelector('nav').classList.toggle('open');
-});

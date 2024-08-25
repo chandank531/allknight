@@ -35,6 +35,9 @@
 .slider {
     display: flex;
     margin-top: 20px;
+    background-color: rgba(20, 20, 20, 0.9); /* Lighter shade of black for the thumbnail section */
+    padding: 10px; /* Optional padding for better spacing */
+    border-radius: 5px; /* Optional rounded corners */
 }
 
 .thumbnail {
@@ -57,6 +60,39 @@
 .product-info {
     max-width: 600px;
 }
+
+/* Adjustments for small screens */
+@media (max-width: 768px) { /* Adjust this breakpoint as needed */
+    .product-details {
+        flex-direction: column; /* Stack vertically */
+        align-items: center; /* Center items */
+        padding: 60px 20px; /* Adjust padding for small screens */
+    }
+
+    .container {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center align */
+    }
+
+    .product-media {
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 20px; /* Add bottom margin for spacing */
+    }
+
+    .slider {
+        flex-direction: row; /* Keep thumbnails in a row */
+        background-color: rgba(20, 20, 20, 0.9); /* Lighter shade of black for thumbnails */
+        padding: 10px; /* Optional padding */
+        border-radius: 5px; /* Optional rounded corners */
+    }
+
+    .thumbnail {
+        margin-right: 5px; /* Adjust space between thumbnails */
+    }
+
+    /* Button spacing adjustments can be added here if necessary */
+}
+
 
 /* Review Section */
 .product-review {
@@ -145,6 +181,31 @@ button.add-to-cart:hover {
 
 button.buy-now:hover {
     background-color: #fd2f00;
+}
+
+/* Adjustments for small screens */
+@media (max-width: 768px) { /* Adjust this breakpoint as needed */
+    .product-review {
+        flex-direction: column; /* Stack reviews vertically */
+        align-items: center; /* Center align items */
+        text-align: center; /* Center align text */
+    }
+
+    .stars {
+        margin-right: 0; /* Remove margin for centered layout */
+        margin-bottom: 5px; /* Add spacing below stars */
+    }
+
+    .review-link {
+        font-size: 16px; /* Adjust font size for readability */
+    }
+
+    button.add-to-cart, button.buy-now {
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 10px; /* Add space between buttons */
+        width: 100%; /* Make buttons full-width */
+        max-width: 300px; /* Optional max-width */
+    }
 }
 
 /* Product Specs Section */
