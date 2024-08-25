@@ -184,7 +184,7 @@ nav ul li a:hover {
 }
 
 
-/* Base dropdown menu styles */
+/* Base dropdown menu styles for large devices (remains unchanged) */
 .dropdown {
     position: relative;
 }
@@ -234,6 +234,56 @@ nav ul li a:hover {
 /* Show dropdown menu on hover */
 .dropdown:hover .dropdown-menu {
     display: flex; /* Show the menu */
+}
+
+/* Responsive Styles for Small Screens */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static; /* Remove absolute positioning */
+        background-color: rgba(0, 0, 0, 0.95); /* Slightly darker background */
+        padding: 15px;
+        border-radius: 5px; /* Rounded corners */
+        box-shadow: none; /* Remove shadow */
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center align items */
+        width: 100%; /* Full width for small devices */
+    }
+
+    .dropdown-menu .dropdown-column {
+        margin-right: 0;
+        margin-bottom: 15px; /* Add spacing between columns */
+        width: 100%; /* Full width for each column */
+        text-align: center; /* Center align text */
+    }
+
+    .dropdown-menu h4 {
+        margin-bottom: 15px; /* Adjust spacing for headers */
+    }
+
+    .dropdown-menu ul li {
+        margin-bottom: 12px; /* Increase spacing between list items */
+    }
+
+    .dropdown-menu ul li a {
+        font-size: 16px; /* Slightly larger font size for readability */
+    }
+
+    /* Dropdown menu animation for small devices */
+    .dropdown:hover .dropdown-menu {
+        display: flex;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 }
 
 
