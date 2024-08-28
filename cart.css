@@ -1,88 +1,167 @@
-/* Container */
-.container {
-    max-width: 1200px;
-    width: 80%;
-    margin-bottom: 40px;
-}
-
-/* Cart Section */
+/* General Styles */
 .cart-page {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 100px 20px; /* Adjust padding for smaller screens */
+    padding: 50px 20px; /* Reduced padding for mobile */
     background-color: #1c1c1c;
     color: white;
 }
 
-.cart-section {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+.container {
+    width: 100%;
+    max-width: 1200px;
     padding: 20px;
-    margin-bottom: 40px;
-    width: 100%; /* Ensure full width on small screens */
-    box-sizing: border-box; /* Include padding in width calculation */
 }
 
-.cart-item {
+/* Cart Section */
+.cart-section {
+    margin-bottom: 20px;
+}
+
+.cart-section .title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-table th, .cart-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ff0000;
+}
+
+.cart-table th {
+    background-color: #ff0000;
+}
+
+.cart-table .remove-item {
+    color: #f4f4f4;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cart-table .remove-item:hover {
+    text-decoration: underline;
+}
+
+/* Dropdown Styles */
+.dropdowns {
+    background-color: #2f2f2f; /* Light shade of black */
+    padding: 10px;
+    border-radius: 4px;
+    color: #fff;
+    margin-top: 20px;
+}
+
+.dropdowns label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.dropdowns select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+}
+
+.dropdowns select:focus {
+    border-color: #666;
+    outline: none;
+}
+
+/* Cart Summary */
+.cart-summary {
+    margin-top: 20px;
+}
+
+.cart-summary .total {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.cart-summary .shipping-address,
+.cart-summary .coupon {
+    margin-bottom: 20px;
+}
+
+.cart-summary label {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
-    flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
-.title h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #fd2f00;
+.cart-summary input[type="text"] {
+    margin-left: 10px;
+    padding: 5px;
+}
+
+.cart-summary .apply-coupon {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #fd2f00;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.cart-summary .apply-coupon:hover {
+    background-color: #e02a00;
+}
+
+/* Total Section Styles */
+.total {
+    margin-top: 20px;
+    text-align: right;
+    padding: 10px;
+    background-color: #2f2f2f;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Centering the Shipping Address and Coupon Sections */
+.shipping-address, .coupon {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
-.cart-item-image img {
-    max-width: 250px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.cart-item-info {
-    margin-left: 20px;
-    color: #000;
-    flex: 1; /* Allow the info to grow */
-}
-
-.cart-item-info h2 {
-    font-size: 24px;
+/* Styles for Labels and Inputs */
+.shipping-address label, .coupon label {
+    display: block;
     margin-bottom: 10px;
+    font-size: 16px;
 }
 
-.cart-item-info .price {
-    font-size: 20px;
-    color: #fd2f00;
-    margin-bottom: 10px;
-}
-
-.cart-item-info .description {
+.shipping-address select, .coupon input {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     font-size: 16px;
     margin-bottom: 10px;
 }
 
-.cart-item-quantity {
-    margin-bottom: 10px;
-}
-
-.cart-item-quantity label {
+.coupon input {
+    display: inline-block;
+    width: calc(100% - 120px);
     margin-right: 10px;
 }
 
-.cart-item-quantity input {
-    padding: 5px;
-    width: 60px;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-}
-
-button {
+.apply-coupon {
+    background-color: #007bff;
+    color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
@@ -90,116 +169,43 @@ button {
     font-size: 16px;
 }
 
-button.remove-item {
-    background-color: #e74c3c;
-    color: #fff;
+.apply-coupon:hover {
+    background-color: #0056b3;
 }
 
-button.remove-item:hover {
-    background-color: #c0392b;
-}
-
-/* Account Creation Form */
-.account-form {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 30px;
-    margin-bottom: 40px;
-    width: 100%; /* Ensure full width on small screens */
-    box-sizing: border-box; /* Include padding in width calculation */
-}
-
-.account-form h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #fd2f00;
-    text-align: center;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    font-size: 16px;
-    margin-bottom: 8px;
-    color: #333;
-}
-
-.form-group input, .form-group select {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    box-sizing: border-box;
-    font-size: 16px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.form-group input:focus, .form-group select:focus {
-    border-color: #fd2f00;
-    box-shadow: 0 0 5px rgba(253, 47, 0, 0.3);
-    outline: none;
-}
-
-.form-group input[type="checkbox"] {
-    width: auto;
-    margin-right: 10px;
-}
-
-.form-group a {
-    color: #fd2f00;
-    text-decoration: none;
-}
-
-.form-group a:hover {
-    text-decoration: underline;
-}
-
-button.create-account {
-    background-color: #fd2f00;
-    color: #fff;
-    padding: 15px;
-    font-size: 18px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%;
-}
-
-button.create-account:hover {
-    background-color: #e64a19;
-}
-
-/* Responsive Design */
+/* Responsive Styles */
 @media (max-width: 768px) {
     .cart-page {
-        padding: 60px 10px; /* Adjust padding for small screens */
+        padding: 30px 10px; /* Adjust padding for smaller screens */
     }
 
-    .cart-item {
-        flex-direction: column; /* Stack items vertically */
-        align-items: flex-start; /* Align items to start */
+    .container {
+        width: 100%;
+        padding: 10px; /* Reduce padding for smaller screens */
     }
 
-    .cart-item-image img {
-        max-width: 100%; /* Ensure image fits container */
+    .cart-table th, .cart-table td {
+        font-size: 14px; /* Smaller font size for mobile screens */
     }
 
-    .cart-item-info {
-        margin-left: 0; /* Remove left margin for small screens */
-        margin-bottom: 20px; /* Add bottom margin for spacing */
+    .cart-summary {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center content horizontally */
     }
 
-    .account-form {
-        padding: 20px;
+    .cart-summary .total {
+        text-align: center; /* Center text for mobile */
+        width: 100%;
     }
 
-    button.create-account {
-        font-size: 16px;
-        padding: 12px; /* Adjust padding for small screens */
+    .shipping-address, .coupon {
+        width: 100%;
+        max-width: none; /* Remove max-width for full-width on smaller screens */
+        padding: 10px;
+    }
+
+    .shipping-address select, .coupon input {
+        width: 100%; /* Full width on smaller screens */
     }
 }

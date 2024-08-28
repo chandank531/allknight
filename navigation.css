@@ -82,7 +82,7 @@ nav ul li a:hover {
 .nav-icons a {
     margin-left: 20px;
     text-decoration: none;
-    color: white;
+    color: #ffd700;
     font-weight: bold;
     font-size: 14px;
 }
@@ -114,6 +114,18 @@ nav ul li a:hover {
 .hamburger {
     display: none;
 }
+
+/* Icon Styles */
+.icon-cart i, .icon-user i {
+    color: #ffd700 !important; /* Ensure gold color */
+    font-size: 18px; /* Adjust font size if needed */
+}
+
+.icon-cart:hover i, .icon-user:hover i {
+    color: #ff4500; /* Change color on hover */
+}
+
+
 
 /* Responsive Styles for Small Screens */
 @media (max-width: 768px) {

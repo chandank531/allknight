@@ -2,9 +2,10 @@
 /* VIM-video-cover.jpg */
 /* TIGER-Vibrator-Black-video-preview.jpg */
 .hero {
-    background-image: url('./assets/VIM-video-cover.jpg');
-    background-size: cover;
+    /* background-image: url('./assets/client.png'); */
+    background-size: contain; /* Changed from cover to contain */
     background-position: center;
+    background-repeat: no-repeat; /* Prevents tiling if the image is smaller than the container */
     height: 80vh;
     display: flex;
     flex-direction: column;
@@ -14,6 +15,17 @@
     color: white;
     position: relative;
     animation: flash 3s ease-in-out 1; /* Flashing effect */
+}
+
+.hero img.hero-background {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain; /* Ensure the image fits inside the container without being cut */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Place it behind other elements */
 }
 
 @keyframes flash {
@@ -76,6 +88,7 @@
     font-size: 16px;
     font-weight: bold;
     margin-top: 20px;
+    align-self: center;
     border-radius: 5px; /* Rounded corners */
     transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
 }
@@ -88,6 +101,15 @@
 .cta-button:active {
     transform: scale(0.95); /* Slightly shrink on click */
 }
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 
 /* Adjustments for overall styling and hover effects */
 
@@ -832,7 +854,7 @@
     align-items: center; /* Center content vertically */
     justify-content: center; /* Center content horizontally */
     flex-shrink: 0; /* Prevent slides from shrinking */
-    width: 250px; /* Consistent slide width */
+    width: 280px; /* Consistent slide width to match bestselling card */
 }
 
 .toy-card {
@@ -843,8 +865,8 @@
     text-align: center;
     padding: 15px;
     position: relative;
-    width: 220px;
-    height: 320px;
+    width: 280px; /* Adjusted width to match bestselling card */
+    height: 400px; /* Adjusted height to match bestselling card */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -855,7 +877,7 @@
 
 .toy-card img {
     width: 100%;
-    height: 150px; /* Fixed image height */
+    height: 150px; /* Fixed image height to match bestselling card */
     object-fit: cover; /* Ensure image fits the space */
     border-bottom: 1px solid #ddd;
     transition: transform 0.3s ease; /* Smooth transition for zoom effect */
@@ -871,7 +893,7 @@
     flex-direction: column;
     align-items: center; /* Center items horizontally */
     justify-content: center; /* Center items vertically */
-    height: 150px; /* Ensuring consistent card height */
+    height: 200px; /* Adjusted height to match bestselling card */
     color: black;
     text-align: center; /* Center text alignment */
 }
@@ -934,18 +956,23 @@
     background-color: #e64a4a; /* Darker shade on hover */
 }
 
+/* Media Queries for small devices */
 @media (max-width: 768px) {
     .slider {
         padding: 10px 0; /* Adjust padding for smaller screens */
     }
 
     .toy-card {
-        width: 150px; /* Adjust card width for smaller screens */
-        height: 250px; /* Adjust card height for smaller screens */
+        width: 100%; /* Full width for smaller screens */
+        height: auto; /* Auto height to maintain aspect ratio */
     }
 
     .toy-card img {
-        height: 120px; /* Adjust image height for smaller screens */
+        height: auto; /* Adjust image height for smaller screens */
+    }
+
+    .card-info {
+        height: auto; /* Adjust card info height for smaller screens */
     }
 
     .newest-toys h2 {
@@ -976,11 +1003,14 @@
     color: #333;
 }
 
+.testimonial-slider {
+    overflow: hidden;
+    position: relative;
+}
+
 .testimonial-cards {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    transition: transform 0.5s ease;
 }
 
 .testimonial-card {
@@ -989,7 +1019,9 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     width: 300px;
+    margin: 0 10px;
     text-align: left;
+    flex-shrink: 0;
 }
 
 .testimonial-content {
@@ -1025,4 +1057,16 @@
 .testimonial-position {
     font-size: 0.9em;
     color: #777;
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+    .testimonial-cards {
+        flex-wrap: nowrap;
+    }
+    
+    .testimonial-card {
+        width: calc(100% - 40px); /* Make sure the card takes full width */
+        margin: 0 20px;
+    }
 }

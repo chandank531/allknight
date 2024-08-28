@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (existingItem) {
             existingItem.quantity += quantity;
         } else {
-            cart.push({ name, price, image, quantity });
+            cart.push({ name, price: parseFloat(price.replace('$', '')), image, quantity });
         }
 
         localStorage.setItem('cart', JSON.stringify(cart));
@@ -17,46 +17,58 @@ document.addEventListener('DOMContentLoaded', function() {
         displayCart(); // Refresh cart display after adding item
     }
 
-    // Function to display cart items
+    // Function to display cart items in the table
     function displayCart() {
-        const cartSection = document.querySelector('.cart-section');
+        const cartTableBody = document.querySelector('.cart-table tbody');
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
         if (cart.length === 0) {
-            cartSection.innerHTML = '<p>Your cart is empty.</p>';
+            cartTableBody.innerHTML = '<tr><td colspan="4">Your cart is empty.</td></tr>';
         } else {
-            cartSection.innerHTML = ''; // Clear any previous content
+            cartTableBody.innerHTML = ''; // Clear any previous content
 
             cart.forEach(item => {
-                const cartItem = document.createElement('div');
-                cartItem.classList.add('cart-item');
+                const row = document.createElement('tr');
 
-                cartItem.innerHTML = `
-                    <div class="cart-item-image">
-                        <img src="${item.image}" alt="${item.name}">
-                    </div>
-                    <div class="cart-item-info">
-                        <h2>${item.name}</h2>
-                        <p class="price">${item.price}</p>
-                        <p class="description">Brief description of the product goes here.</p>
-                        <div class="cart-item-quantity">
-                            <label for="quantity-${item.name}">Quantity:</label>
-                            <input type="number" id="quantity-${item.name}" name="quantity" value="${item.quantity}" min="1">
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>
+                        ${item.description || 'No description'}
+                        <div class="dropdowns">
+                            <!-- Sample dropdowns, update as needed -->
+                            <label>What Color Magneton (H80) do I want?
+                                <select>
+                                    <option value="black">Black</option>
+                                    <option value="red">Red</option>
+                                    <option value="blue">Blue</option>
+                                </select>
+                            </label>
+                            <label>NEW - Make my Hardwear Magneton (H80) a half size tighter?
+                                <select>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </label>
                         </div>
-                        <button class="remove-item" data-name="${item.name}">Remove Item</button>
-                    </div>
+                    </td>
+                    <td>$${item.price.toFixed(2)}</td>
+                    <td><a href="#" class="remove-item" data-name="${item.name}">Remove</a></td>
                 `;
 
-                cartSection.appendChild(cartItem);
+                cartTableBody.appendChild(row);
             });
 
             // Attach event listeners for remove buttons
             const removeButtons = document.querySelectorAll('.remove-item');
             removeButtons.forEach(button => {
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent default link behavior
                     removeFromCart(button.dataset.name);
                 });
             });
+
+            // Update the total
+            updateTotal();
         }
     }
 
@@ -66,19 +78,30 @@ document.addEventListener('DOMContentLoaded', function() {
         cart = cart.filter(item => item.name !== productName);
 
         localStorage.setItem('cart', JSON.stringify(cart));
-        console.log('Cart updated after removal:', cart); // Debugging line
         displayCart(); // Refresh cart display
+    }
+
+    // Function to update the total amount
+    function updateTotal() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const total = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+
+        const totalElement = document.querySelector('.total');
+        if (totalElement) {
+            totalElement.innerHTML = `<h3>Total: $${total.toFixed(2)}</h3>`;
+        }
     }
 
     // Initial display of cart items when page loads
     displayCart();
 
     // Example event listener setup for adding items to cart
+    // Make sure you have elements with the class 'add-to-cart' and data attributes in your actual HTML
     const addToCartButtons = document.querySelectorAll('.add-to-cart');
     addToCartButtons.forEach(button => {
         button.addEventListener('click', function() {
             const itemName = button.dataset.name;
-            const itemPrice = button.dataset.price;
+            const itemPrice = parseFloat(button.dataset.price.replace('$', ''));
             const itemImage = button.dataset.image;
             const itemQuantity = 1; // Default quantity
 

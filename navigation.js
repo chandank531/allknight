@@ -42,15 +42,27 @@ function loadPartial(partialPath, elementId, callback) {
 }
 
 function updateCartCount() {
-    const cartIcon = document.querySelector('.icon-cart');
-    if (!cartIcon) {
-        console.error('Cart icon not found.');
-        return;
-    }
+    console.log('updateCartCount function called'); // Debug statement
 
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    console.log('Cart data:', cart); // Debug statement
+
     const itemCount = cart.reduce((count, item) => count + item.quantity, 0);
-    cartIcon.textContent = `🛒 CART (${itemCount})`;
+    const cartIcon = document.querySelector('.icon-cart');
+    if (cartIcon) {
+        cartIcon.innerHTML = `<i class="fas fa-shopping-cart" style="color: #ffd700 !important;"></i> CART (${itemCount})`;
+    } else {
+        console.error('Cart icon not found.');
+    }
+
+    // Update user icon if necessary
+    const userIcon = document.querySelector('.icon-user');
+    if (userIcon) {
+        // Update user icon content or status if needed
+        userIcon.innerHTML = `<i class="fas fa-user"></i> SIGN IN`;
+    } else {
+        console.error('User icon not found.');
+    }
 }
 
 function initDropdownMenu() {
@@ -139,3 +151,15 @@ function initFooterLinks() {
         });
     });
 }
+
+const testimonialSlider = document.querySelector('.testimonial-slider');
+const testimonialCards = document.querySelector('.testimonial-cards');
+let currentIndex = 0;
+
+function showNextSlide() {
+    const cardWidth = document.querySelector('.testimonial-card').offsetWidth;
+    currentIndex = (currentIndex + 1) % testimonialCards.children.length;
+    testimonialCards.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+}
+
+setInterval(showNextSlide, 3000); // Adjust timing as needed
